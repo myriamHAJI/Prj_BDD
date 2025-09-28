@@ -15,5 +15,5 @@ Ce projet a pour objectif de modéliser et développer une base de données pour
 - Partie 2 (19/10) : MLD, MPD, scripts SQL, données, requêtes et vidéo
 
 ## Binôme
-- Nom 1 (email étudiant)
-- Nom 2 (email étudiant)
+- HAJI Myriam
+- KAMOUN Omar
