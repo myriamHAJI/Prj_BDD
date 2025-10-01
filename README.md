@@ -15,38 +15,61 @@ L'objectif est de modéliser la gestion des employés, départements, clients, m
 
 ## Contenu du dépôt
 - `MCD/` : schéma conceptuel (`MCD.png`) et fichier source (`MCD.loo`) ouvrable avec **Looping**.  
-- `prompts/` : documents de travail préparatoires (règles métier, réflexion).  
+- `prompts/` : contient le prompt RICARDO utilisé ainsi que la réponse de l’IA (règles métier, dictionnaire de données et hypothèses).  
 - `rapport/` : rapport de conception (au format DOCX).  
 
 ---
 
 ## Règles métier
 
-### Départements et employés
+Après analyse des propositions initiales fournies par l’IA, nous avons réétudié et précisé les règles métier afin de les traduire correctement dans le MCD final.  
+
+### Employés et départements
+- Un employé appartient obligatoirement à **un département** (1,1).  
 - Un département emploie **(0,n)** employés.  
-- Un employé appartient obligatoirement à **un seul département (1,1)**.  
 
 ### Hiérarchie des employés
 - Un employé peut avoir **(0,1)** manager.  
 - Un employé peut manager **(0,n)** subordonnés.  
-- **Contrainte** : un employé ne peut pas être son propre manager.  
+- Contrainte : un employé ne peut pas être son propre manager.  
+
+### Qualifications
+- Un employé peut posséder **(0,n)** qualifications.  
+- Une qualification peut être détenue par **(0,n)** employés.  
+- Chaque possession de qualification est associée à une **date d’obtention** et une **date d’expiration**.  
+
+### Clients et échanges
+- Un client peut échanger **(1,n)** fois avec l’ESN (par l’intermédiaire d’un employé).  
+- Un employé peut participer à **(0,n)** échanges.  
+- Chaque échange est identifié par une **date**.  
+
+### Contrats
+- Un client peut signer **(0,n)** contrats.  
+- Un contrat est toujours signé par **un seul client** (1,1).  
+- Chaque contrat possède une **date de signature**, une **date de début** et une **date de fin**.  
 
 ### Missions
-- Une mission peut être **interne** (réalisée pour l'ESN) ou **externe** (réalisée pour un client).  
-- Une mission implique au minimum **un employé**.  
+- Un contrat couvre **(1,n)** missions.  
+- Une mission appartient toujours à **un seul contrat** (1,1).  
+- Une mission est caractérisée par : `id_mission`, `nom_mission`, `type_mission`, `date_debut`, `date_fin`.  
 
-### Clients et contrats
-- Un client possède **(0,n)** contrats.  
-- Une mission externe est rattachée à un **contrat actif** d'un client.  
+### Affectations
+- Un employé peut être affecté à **(0,n)** contrats.  
+- Un contrat implique **(1,n)** employés.  
 
-### Interventions
-- Une intervention associe un **employé**, une **mission** et un **contrat**.  
-- Le triplet `(employé, mission, contrat)` est **unique**.  
-- Chaque intervention précise un **rôle** et un **tarif journalier strictement positif**.  
+### Participation aux missions
+- Un employé peut effectuer **(0,n)** missions.  
+- Une mission implique **(1,n)** employés.  
 
 ### Livrables
 - Une mission peut produire **(0,n)** livrables.  
-- Chaque livrable est identifié par un **nom**, une **date prévue**, une **date réelle** et un **statut**.  
+- Un livrable est toujours rattaché à **une seule mission** (1,1).  
+- Un livrable est défini par : `numero`, `description`, `date_remise`.  
+
+### Rédaction
+- Un employé peut rédiger **(0,n)** livrables.  
+- Un livrable est toujours rédigé par **un seul employé** (1,1).  
+
 
 ---
 
@@ -55,7 +78,9 @@ Certaines règles métier ne figurent pas directement dans le MCD mais doivent �
 
 - Le salaire d’un employé doit être strictement supérieur à 0.  
 - Le tarif journalier d’une affectation doit être strictement supérieur à 0.  
-- La date de fin d’une mission ou d’un contrat doit être postérieure ou égale à la date de début (ou nulle si en cours).  
+- La date de fin d’une **mission** doit être supérieure ou égale à sa date de début (ou `NULL` si mission en cours).  
+- La date de fin d’un **contrat** doit être supérieure ou égale à sa date de début (ou `NULL` si contrat en cours).  
+- La date d’expiration d’une **qualification possédée** doit être supérieure ou égale à sa date d’obtention (ou `NULL` si qualification en cours).  
 - Un employé ne peut pas être son propre manager.  
 - Les livrables d’une mission sont numérotés à partir de 1, avec une numérotation locale par mission.  
 
