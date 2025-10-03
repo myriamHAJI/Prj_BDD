@@ -70,7 +70,6 @@ Après analyse des propositions initiales fournies par l’IA, nous avons réét
 - Un employé peut rédiger **(0,n)** livrables.  
 - Un livrable est toujours rédigé par **un seul employé** (1,1).  
 
-
 ---
 
 ## Contraintes d'intégrité globales
@@ -83,6 +82,9 @@ Certaines règles métier ne figurent pas directement dans le MCD mais doivent �
 - La date d’expiration d’une **qualification possédée** doit être supérieure ou égale à sa date d’obtention (ou `NULL` si qualification en cours).  
 - Un employé ne peut pas être son propre manager.  
 - Les livrables d’une mission sont numérotés à partir de 1, avec une numérotation locale par mission.  
+- La **commission** (si utilisée) doit être supérieure ou égale à 0.  
+- Chaque mission doit comporter au moins **un employé** (participation minimale côté Mission sur `Effectuer_mission`).  
+- L’attribut `type_mission` est conservé uniquement comme **classification interne** des missions. Les règles “INTERNE ⇒ contrat NULL / CLIENT ⇒ contrat NOT NULL” proposées par l’IA ne s’appliquent plus, car toutes les missions sont contractualisées.  
 
 ---
 
