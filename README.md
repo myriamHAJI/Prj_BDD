@@ -191,18 +191,19 @@ Vidéo Panopto nommée :
 
 /Mini_Projet/
 │
-├── MCD/                     # Schéma conceptuel et source Looping
-├── MLD/                     # Modèle logique et transformations
-├── MPD/                     # Script SQL de création
-├── prompts/                 # Prompts IA (règles métier + insertion)
-├── rapport/                 # Rapport de projet + vidéo de présentation
-├── insertion/               # Fichiers d’insertion générés
-├── interrogation/            # Scénarios et requêtes SQL
+├── MCD/                      # Schéma conceptuel et source Looping
+├── MLD/                      # Modèle logique et transformations
+├── MPD/                      # Script SQL de création
+├── prompts/                  # Prompts IA (règles métier + insertion)
+├── rapport/                  # Rapport de projet + vidéo de présentation
+├── insertion/                # Fichiers d’insertion générés
+├── interrogation/             # Scénarios et requêtes SQL
 ├── 1_creation.sql
 ├── 2_contraintes.sql
 ├── 3_insertion.sql
 ├── 4_interrogation.sql
 └── README.md
+
 
 ---
 
