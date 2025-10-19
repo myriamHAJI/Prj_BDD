@@ -189,19 +189,34 @@ Vidéo Panopto nommée :
 
 ## Organisation du dépôt
 
-- **/Mini_Projet/**
-  - **MCD/** – Schéma conceptuel et fichier Looping  
-  - **MLD/** – Modèle logique et transformations  
-  - **MPD/** – Script SQL de création  
-  - **prompts/** – Prompts IA (règles métier + insertion)  
-  - **rapport/** – Rapport du projet + vidéo de présentation  
-  - **insertion/** – Fichiers d’insertion générés  
-  - **interrogation/** – Scénarios et requêtes SQL  
-  - **1_creation.sql**  
-  - **2_contraintes.sql**  
-  - **3_insertion.sql**  
-  - **4_interrogation.sql**  
-  - **README.md**
+## Organisation du dépôt
+
+- **PRJ_BDD/**
+  - **insertion/**
+    - 3_insertion.sql
+  - **interrogation/**
+    - 4_interrogation.sql  
+    - scenario.txt
+  - **models/**
+    - **MCD/**
+      - MCD_PremiereVersion.png  
+      - MCD_VersionFinal.png  
+      - MCD.loo
+    - **MLD/**
+      - MLD_schema.png  
+      - MLD.png  
+      - MLD.txt
+    - **MPD/**
+      - 1_creation.sql  
+      - 2_contraintes.sql
+  - **prompts/**
+    - prompt_insertion.txt  
+    - prompt_RICARDO.md  
+    - reponce_IA.md
+  - **rapport/**
+    - rapport.docx
+  - README.md
+
 
 
 ---
