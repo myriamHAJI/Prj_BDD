@@ -1,6 +1,6 @@
 use esn;
 
--- alter table
+-- check
 
 ALTER TABLE Contrat 
     ADD CONSTRAINT chk_date_contrat CHECK (date_fin IS NULL OR date_fin >= date_debut);

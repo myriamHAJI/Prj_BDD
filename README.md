@@ -183,7 +183,7 @@ Une **vidéo de présentation (≤ 10 min)** illustre la conception et la mise e
 
 ### Format
 Vidéo Panopto nommée :  
-`GrpX_ProjetBD_Haji_Kamoun`  
+`I1New1_ProjetBD_KAMOUN_HAJI`  
 
 ---
 
@@ -215,6 +215,7 @@ Vidéo Panopto nommée :
     - reponce_IA.md
   - **rapport/**
     - rapport.docx
+    - I1New1_ProjetBD_KAMOUN_HAJI.mp4
   - README.md
 
 
