@@ -1,0 +1,72 @@
+# Scénarios d'utilisation — Mini-Projet BDD : Gestion d'une ESN
+
+Ce document décrit les deux principaux scénarios d’exploitation de la base de données.
+Ils illustrent comment les différents pôles de l’ESN peuvent analyser et piloter leurs activités
+à partir des données du système d’information.
+
+---
+
+## Scénario 1 — Analyse RH des employés et de leurs qualifications
+
+Rôle concerné : Responsable des Ressources Humaines  
+Objectif : Suivre la répartition des employés, leurs salaires, leurs départements
+et leurs compétences afin d’orienter la politique RH et la formation interne.
+
+### Données analysées
+1. Liste des employés appartenant à certains départements clés  
+   (Conseil & Stratégie IT, Support Technique, Commercial & Marketing).  
+2. Salaire moyen par département pour observer les écarts de rémunération.  
+3. Répartition des salaires par tranches (moins de 4000€, entre 4000€ et 5000€, plus de 5000€).  
+4. Liste des employés ne possédant encore aucune qualification.  
+5. Nombre d’employés par qualification (Java, Big Data, DevOps, etc.).  
+6. Nombre de missions effectuées par chaque employé.  
+7. Employés possédant simultanément les qualifications "Java" et "Big Data".  
+8. Nombre d’employés supervisés par chaque manager.  
+
+### Intérêt métier
+Ce scénario offre une vision d’ensemble du capital humain de l’entreprise :  
+- Identifier les compétences dominantes et les manques.  
+- Détecter les salariés sans qualification pour planifier des formations.  
+- Évaluer la charge de travail et la répartition des missions.  
+- Mieux comprendre la structure hiérarchique et les écarts de salaire.  
+
+---
+
+## Scénario 2 — Analyse commerciale des clients et de leurs contrats
+
+Rôle concerné : Responsable Commercial  
+Objectif : Mesurer l’activité commerciale et la relation client à travers les contrats,
+les échanges et les comportements de renouvellement.
+
+### Données analysées
+9. Nombre de contrats signés par client.  
+10. Clients ayant signé un contrat entre 2022 et 2024.  
+11. Répartition des types d’échanges effectués avec les clients.  
+12. Liste des clients sans aucun échange avec l’entreprise.  
+13. Clients n’ayant pas renouvelé de contrat depuis plus de 12 mois.  
+14. Clients ayant eu au moins un échange, mais aucun contrat signé.  
+15. Employés n’échangeant qu’avec des clients ayant signé un contrat.  
+
+### Intérêt métier
+Ce scénario permet une analyse fine de la performance commerciale :  
+- Identifier les clients actifs, inactifs ou à relancer.  
+- Repérer les prospects n’ayant pas encore signé de contrat.  
+- Mesurer la fidélisation et le renouvellement.  
+- Valoriser les employés concentrés sur des clients rentables.  
+
+---
+
+## Synthèse globale
+
+Ces deux scénarios se complètent pour offrir :  
+- Une vision interne (pôle RH) sur la gestion des ressources humaines.  
+- Une vision externe (pôle commercial) sur les relations clients et les performances de l’entreprise.  
+
+En combinant ces analyses, la direction peut :  
+- Ajuster les effectifs selon la charge commerciale.  
+- Identifier les compétences à renforcer selon la typologie des missions.  
+- Prioriser les clients à fort potentiel de reconduction.  
+- Favoriser la collaboration entre les pôles RH, Technique et Commercial.  
+
+Les requêtes associées à ces scénarios se trouvent dans le fichier :  
+`4_interrogation.sql`
