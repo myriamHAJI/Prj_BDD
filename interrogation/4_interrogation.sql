@@ -121,8 +121,6 @@ WHERE NOT EXISTS (
 AND co.date_signature < DATE_SUB(CURDATE(), INTERVAL 12 MONTH)
 ORDER BY co.date_signature ASC;
 
--- type d'echange
-
 -- 14 Liste des clients ayant eu au moins un échanges avec l'entreprise, sans contrat signé
 
 SELECT c.id_client, c.nom_client, COUNT(DISTINCT e.type_echange) AS nb_canaux

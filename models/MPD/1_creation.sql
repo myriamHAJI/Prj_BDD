@@ -1,3 +1,5 @@
+CREATE DATABASE esn;
+
 USE esn;
 
 CREATE TABLE Departement (
