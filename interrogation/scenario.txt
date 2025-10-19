@@ -1,72 +1,34 @@
-# Scénarios d'utilisation — Mini-Projet BDD : Gestion d'une ESN
+Scénarios d’utilisation de la base de données
 
-Ce document décrit les deux principaux scénarios d’exploitation de la base de données.
-Ils illustrent comment les différents pôles de l’ESN peuvent analyser et piloter leurs activités
-à partir des données du système d’information.
+La base de données développée pour la gestion d’une ESN permet à différents services de l’entreprise d’exploiter les informations enregistrées afin d’analyser et d’améliorer la performance globale de l’organisation. Deux scénarios principaux ont été définis afin d’illustrer ces usages : l’un orienté vers la gestion des ressources humaines, et l’autre vers l’analyse commerciale.
 
----
 
-## Scénario 1 — Analyse RH des employés et de leurs qualifications
 
-Rôle concerné : Responsable des Ressources Humaines  
-Objectif : Suivre la répartition des employés, leurs salaires, leurs départements
-et leurs compétences afin d’orienter la politique RH et la formation interne.
+Scénario 1 – Analyse RH des employés et de leurs qualifications
 
-### Données analysées
-1. Liste des employés appartenant à certains départements clés  
-   (Conseil & Stratégie IT, Support Technique, Commercial & Marketing).  
-2. Salaire moyen par département pour observer les écarts de rémunération.  
-3. Répartition des salaires par tranches (moins de 4000€, entre 4000€ et 5000€, plus de 5000€).  
-4. Liste des employés ne possédant encore aucune qualification.  
-5. Nombre d’employés par qualification (Java, Big Data, DevOps, etc.).  
-6. Nombre de missions effectuées par chaque employé.  
-7. Employés possédant simultanément les qualifications "Java" et "Big Data".  
-8. Nombre d’employés supervisés par chaque manager.  
+Le premier scénario concerne le rôle de la responsable des ressources humaines. Son objectif est de suivre la répartition des employés, leurs salaires, leurs départements et leurs compétences, afin d’orienter les décisions liées au recrutement, à la formation et à l’évolution interne.
+Les requêtes associées (1 à 8 du fichier 4_interrogation.sql) permettent d’extraire différentes informations utiles à cette analyse. La responsable peut ainsi identifier les employés appartenant à certains départements stratégiques, calculer le salaire moyen par service, ou encore observer la répartition des salaires par tranches. Elle peut repérer les employés ne possédant aucune qualification, analyser le nombre d’employés par type de compétence et connaître les domaines techniques les plus représentés dans l’entreprise.
+D’autres requêtes permettent d’évaluer la charge de travail de chaque employé à travers le nombre de missions réalisées, ou encore de déterminer les compétences clés comme “Java” et “Big Data”. Enfin, la base offre la possibilité de mesurer le nombre d’employés supervisés par chaque manager, ce qui permet de mieux comprendre la structure hiérarchique et la répartition du management.
 
-### Intérêt métier
-Ce scénario offre une vision d’ensemble du capital humain de l’entreprise :  
-- Identifier les compétences dominantes et les manques.  
-- Détecter les salariés sans qualification pour planifier des formations.  
-- Évaluer la charge de travail et la répartition des missions.  
-- Mieux comprendre la structure hiérarchique et les écarts de salaire.  
+Ce scénario apporte une vision complète du capital humain. Il facilite la détection des déséquilibres entre départements (en termes de salaires, de compétences ou d’effectifs) et aide à planifier des actions de formation ou de réorganisation. Il constitue un outil essentiel pour améliorer la gestion interne et optimiser la politique RH de l’entreprise.
 
----
 
-## Scénario 2 — Analyse commerciale des clients et de leurs contrats
 
-Rôle concerné : Responsable Commercial  
-Objectif : Mesurer l’activité commerciale et la relation client à travers les contrats,
-les échanges et les comportements de renouvellement.
+Scénario 2 – Analyse commerciale des clients et des contrats
 
-### Données analysées
-9. Nombre de contrats signés par client.  
-10. Clients ayant signé un contrat entre 2022 et 2024.  
-11. Répartition des types d’échanges effectués avec les clients.  
-12. Liste des clients sans aucun échange avec l’entreprise.  
-13. Clients n’ayant pas renouvelé de contrat depuis plus de 12 mois.  
-14. Clients ayant eu au moins un échange, mais aucun contrat signé.  
-15. Employés n’échangeant qu’avec des clients ayant signé un contrat.  
+Le second scénario concerne le responsable commercial, dont la mission est d’analyser l’activité des clients, les contrats signés et les échanges réalisés avec l’entreprise. L’objectif est d’évaluer la performance commerciale, de mesurer la fidélisation et d’identifier les opportunités de développement.
+Les requêtes associées (9 à 15 du fichier 4_interrogation.sql) permettent de lister les clients et le nombre de contrats signés, d’isoler ceux ayant signé entre 2022 et 2024, et d’analyser la répartition des types d’échanges (mails, appels, réunions, etc.). Il est également possible de repérer les clients n’ayant eu aucun contact avec l’entreprise ou n’ayant pas renouvelé de contrat depuis plus d’un an.
+Le scénario permet aussi d’identifier les clients ayant eu des échanges sans jamais signer de contrat, ainsi que les employés qui n’interagissent qu’avec des clients ayant effectivement signé. Ces informations aident à distinguer les clients actifs de ceux à relancer, à détecter les prospects non convertis et à évaluer l’efficacité des équipes commerciales dans la gestion de la relation client.
 
-### Intérêt métier
-Ce scénario permet une analyse fine de la performance commerciale :  
-- Identifier les clients actifs, inactifs ou à relancer.  
-- Repérer les prospects n’ayant pas encore signé de contrat.  
-- Mesurer la fidélisation et le renouvellement.  
-- Valoriser les employés concentrés sur des clients rentables.  
+Ce scénario offre une vision claire de la performance commerciale de l’ESN. Il aide à prioriser les relances, à cibler les clients à fort potentiel et à renforcer la stratégie de prospection. Il constitue un appui à la prise de décision pour optimiser la politique commerciale et améliorer la fidélisation.
 
----
+Synthèse générale
 
-## Synthèse globale
 
-Ces deux scénarios se complètent pour offrir :  
-- Une vision interne (pôle RH) sur la gestion des ressources humaines.  
-- Une vision externe (pôle commercial) sur les relations clients et les performances de l’entreprise.  
 
-En combinant ces analyses, la direction peut :  
-- Ajuster les effectifs selon la charge commerciale.  
-- Identifier les compétences à renforcer selon la typologie des missions.  
-- Prioriser les clients à fort potentiel de reconduction.  
-- Favoriser la collaboration entre les pôles RH, Technique et Commercial.  
+Ces deux scénarios se complètent et traduisent les deux axes essentiels de la gestion d’une ESN : la dimension interne liée aux ressources humaines et la dimension externe liée à la performance commerciale. Ensemble, ils offrent une compréhension globale du fonctionnement de l’entreprise.
+L’exploitation croisée des résultats permet à la direction d’ajuster les effectifs selon la charge réelle des projets, d’identifier les compétences clés associées aux contrats les plus rentables et de cibler les clients à fidéliser ou à reconquérir. Ce travail d’analyse contribue à renforcer la collaboration entre les pôles RH, Technique et Commercial, et à soutenir les décisions stratégiques de l’entreprise.
 
-Les requêtes associées à ces scénarios se trouvent dans le fichier :  
-`4_interrogation.sql`
+
+
+L’ensemble des requêtes SQL correspondant à ces scénarios est disponible dans le fichier 4_interrogation.sql.
