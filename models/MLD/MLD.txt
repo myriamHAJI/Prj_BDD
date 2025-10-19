@@ -1,8 +1,8 @@
 Departement = (id_departement INT, nom_departement VARCHAR(50));
 
-Employe = (id_employe INT, nom VARCHAR(50), prenom VARCHAR(50), eEMAIL VARCHAR(100), job VARCHAR(50), date_embauche DATE, salaire DECIMAL(10,2), commission DECIMAL(10,2), #id_departement, #id_employe_1);
+Employe = (id_employe INT, nom VARCHAR(50), prenom VARCHAR(50), email VARCHAR(100), job VARCHAR(50), date_embauche DATE, salaire DECIMAL(10,2), commission DECIMAL(10,2), #id_departement, #id_employe_1);
 
-Client = (id_client INT, nom_client VARCHAR(100), eEMAIL_contact VARCHAR(100), telephone VARCHAR(20));
+Client = (id_client INT, nom_client VARCHAR(100), email_contact VARCHAR(100), telephone VARCHAR(20));
 
 Contrat = (id_contrat INT, date_signature DATE, date_debut DATE, date_fin DATE, #id_employe, #id_client);
 

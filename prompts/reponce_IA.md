@@ -81,7 +81,7 @@ Attribut	Type	Null	Contraintes	Description
 id_employe	INT	NOT NULL	PK	Identifiant
 nom	VARCHAR(50)	NOT NULL		Nom
 prenom	VARCHAR(50)	NOT NULL		Prénom
-email	VARCHAR(100)	NOT NULL	UNIQUE	Email pro
+email	VARCHAR(100)	NOT NULL	UNIQUE	email pro
 salaire	DECIMAL(10,2)	NOT NULL	CHECK (salaire > 0)	Salaire mensuel
 id_departement	INT	NOT NULL	FK → Departement(id_departement)	Appartenance
 id_manager	INT	NULL	FK → Employe(id_employe), CHECK (id_manager <> id_employe)	Manager (récursif)

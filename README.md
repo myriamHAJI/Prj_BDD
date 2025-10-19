@@ -101,6 +101,13 @@ La deuxième partie du projet consistera à :
 2. **Implémenter le modèle en SQL** (création de tables, contraintes, données de test).  
 3. Définir un ensemble de **requêtes SQL** pour valider le schéma et extraire des informations utiles.  
 
+## Contenu du dépôt
+- `models/` : l'ensemble des schémas conceptuels (`MCD/MCD.png`,`MLD/MLD.png`,`MPD/MPD.png`) et le fichier source (`MCD.loo`) ouvrable avec **Looping**.  
+- `prompts/` : contient le prompt RICARDO utilisé, la réponse de l’IA (règles métier, dictionnaire de données et hypothèses) et le prompt d'insertion de données.  
+- `rapport/` : rapport de conception (au format DOCX) ainsi que la video en MP4.
+- `insertion/` : fichier d'insertion de données, genere par l'IA.
+- `interrogation` : fichier de test des requetes dans notre base de données ainsi qu'un fichier comportant les scenarios d'utilisations.
+
 ---
 
 ## Auteurs

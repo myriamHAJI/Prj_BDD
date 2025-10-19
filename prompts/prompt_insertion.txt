@@ -1,0 +1,107 @@
+Prompt de génération d’insertion :
+
+Contexte
+Je dois remplir une base de données d’une ESN (Entreprise de Services du Numérique).
+L’entreprise gère :
+- ses départements
+- ses employés
+- ses clients
+- ses contrats
+- ses missions
+- ses livrables
+- les qualifications et affectations de ses employés
+
+Objectif
+Générer des instructions SQL d’insertion (INSERT) valides et directement exécutables
+sous MySQL 8, en respectant l’ensemble des contraintes et clés étrangères de la base.
+
+Règles métier à respecter
+
+1) Employé
+- Le salaire doit être supérieur à 0 et non nul.
+- La commission peut être nulle ou supérieure à 0.
+- La date d’embauche ≤ date du jour.
+- Chaque employé appartient à un seul département.
+- Un employé peut avoir zéro ou un manager, mais jamais être son propre manager.
+
+2) Département
+- Le nom du département doit être unique.
+
+3) Mission
+- Type : "INTERNE" ou "EXTERNE".
+- Si "EXTERNE" → un contrat doit être associé.
+- Si "INTERNE" → aucun contrat ne doit être associé.
+- Date_fin ≥ Date_début, ou nulle si mission en cours.
+
+4) Contrat
+- Chaque contrat est lié à un client.
+- Date_fin ≥ Date_début, ou nulle si contrat en cours.
+
+5) Livrable
+- Clé primaire : (id_mission, numero)
+- numero ≥ 1
+- Date_remise ≥ Date_début de la mission correspondante. (la date peut etre prévisionnel)
+
+6) Effectuer_mission
+- Clé primaire : (id_employe, id_mission)
+- Date_affectation ∈ [Date_début ; Date_fin] (si fin non nulle). (la date peut etre prévisionnel)
+
+7) Qualification
+- Nom unique.
+
+8) Possede_Qualification
+- Clé primaire : (id_employe, id_qualification, date_obtention)
+- Date_expiration ≥ Date_obtention, ou nulle.
+
+9) Rediger (si présente)
+- Un employé peut rédiger 0 ou plusieurs livrables.
+- Date_rédaction ≥ Date_début_mission et ≤ Date_fin_mission (si elle existe).
+
+10) Echanger (si présente)
+- Type : "EMAIL", "TELEPHONE" ou "EN_PERSONNE".
+- id_employe et id_client doivent exister.
+- la date_echange peut etre prévisionnel
+
+Volumes attendus
+- Departement : 7
+- Employe : 68
+- Client : 15
+- Qualification : 12
+- Possede_Qualification : 60
+- Contrat : 20
+- Mission : 40 (moitié INTERNE / moitié EXTERNE)
+- Livrable : 40 (un livrable par mission, ou plusieurs livrables si la version est une nouvelle update)
+- Effectuer_mission : 100
+- Rediger : 80 à 120 (1 à 2 rédacteurs par livrable)
+- Echanger : 60 (types aléatoires)
+
+Format de sortie attendu
+- Générer uniquement des instructions SQL INSERT valides MySQL 8.
+- Un bloc d’insertion par table, clairement séparé.
+- Utiliser des valeurs réalistes :
+  * noms, prénoms et e-EMAILs uniques
+  * numéros français au format +33XXXXXXXXX
+  * dates entre 2021 et 2025
+  * salaires entre 2000 et 6500 €
+  * commissions entre 0 et 800 €
+
+Ordre logique de dépendance
+1. Departement
+2. Employe
+3. Client
+4. Qualification
+5. Possede_Qualification
+6. Contrat
+7. Mission
+8. Livrable
+9. Effectuer_mission
+10. Rediger (si présente)
+11. Echanger (si présente)
+
+Autres consignes
+- Aucune autre instruction SQL (pas de CREATE, ALTER, SELECT, etc.)
+- Produire entre 150 et 250 lignes d’insertion au total.
+
+But final
+Obtenir un fichier nommé "3_insertion.sql", directement exécutable sous MySQL 8
+et respectant toutes les contraintes et triggers définis dans les fichiers précédents.
