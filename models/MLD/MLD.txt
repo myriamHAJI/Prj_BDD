@@ -1,0 +1,21 @@
+Departement = (id_departement INT, nom_departement VARCHAR(50));
+
+Employe = (id_employe INT, nom VARCHAR(50), prenom VARCHAR(50), eEMAIL VARCHAR(100), job VARCHAR(50), date_embauche DATE, salaire DECIMAL(10,2), commission DECIMAL(10,2), #id_departement, #id_employe_1);
+
+Client = (id_client INT, nom_client VARCHAR(100), eEMAIL_contact VARCHAR(100), telephone VARCHAR(20));
+
+Contrat = (id_contrat INT, date_signature DATE, date_debut DATE, date_fin DATE, #id_employe, #id_client);
+
+Qualification = (id_qualification INT, nom_qualification VARCHAR(50), niveau VARCHAR(20), description_qualification VARCHAR(500));
+
+Mission = (id_mission INT, nom_mission VARCHAR(100), type_mission VARCHAR(10), date_debut DATE, date_fin DATE, #id_contrat);
+
+Livrable = (#id_mission, numero INT, description VARCHAR(200), date_remise DATE);
+
+Possession_qualification  = (#id_employe, #id_qualification, date_obtention DATE, date_expiration DATE);
+
+Effectuer_mission = (#id_employe, #id_mission, date_affectation DATE);
+
+Echanger = (#id_employe, #id_client, date_echange DATE, type_echange VARCHAR(30));
+
+Rediger = (#id_employe, #(#id_mission, numero), date_redaction DATE, statut VARBINARY(50));
